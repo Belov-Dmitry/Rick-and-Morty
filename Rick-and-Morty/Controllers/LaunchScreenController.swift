@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LaunchScreen: UIViewController {
+final class LaunchScreenController: UIViewController {
     
     private var logoImageView = UIImageView()
     private var loadingComponentImageView = UIImageView()

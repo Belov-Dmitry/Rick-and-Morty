@@ -12,6 +12,7 @@
 		F409F40F2BBF2BBC004433D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F40E2BBF2BBC004433D3 /* ViewController.swift */; };
 		F409F4142BBF2BBE004433D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F409F4132BBF2BBE004433D3 /* Assets.xcassets */; };
 		F409F4172BBF2BBE004433D3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F409F4162BBF2BBE004433D3 /* Base */; };
+		F409F4212BBF42DF004433D3 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4202BBF42DF004433D3 /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F409F4132BBF2BBE004433D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F409F4162BBF2BBE004433D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F409F4182BBF2BBE004433D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F409F4202BBF42DF004433D3 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				F409F41F2BBF2E1A004433D3 /* Application */,
 				F409F41E2BBF2DF9004433D3 /* Resources */,
 				F409F40E2BBF2BBC004433D3 /* ViewController.swift */,
+				F409F4202BBF42DF004433D3 /* LaunchScreen.swift */,
 			);
 			path = "Rick-and-Morty";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F409F4212BBF42DF004433D3 /* LaunchScreen.swift in Sources */,
 				F409F40F2BBF2BBC004433D3 /* ViewController.swift in Sources */,
 				F409F40B2BBF2BBC004433D3 /* AppDelegate.swift in Sources */,
 				F409F40D2BBF2BBC004433D3 /* SceneDelegate.swift in Sources */,

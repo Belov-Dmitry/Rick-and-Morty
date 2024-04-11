@@ -6,16 +6,24 @@
 //
 
 import Foundation
+import UIKit
 
 class LaunchScreenCoordinator: Coordinator {
-
-    override func start() {
-        //let presenter = LaunchScreenViewPresenter(coordinator: self)
-        let vc = LaunchScreenController()
-        navigationController?.pushViewController(vc, animated: true)
+    private var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
-    override func finish() {
-        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
+    override func start() {
+        let launchScreenController = LaunchScreenController()
+        launchScreenController.launchScreenCoordinator = self
+        navigationController.pushViewController(launchScreenController, animated: true)
+    }
+    
+    func showTabbar() {
+        let tabbarCoordinator = TabbarCoordinator(navigationController: navigationController)
+        addChildCoordinator(tabbarCoordinator)
+        tabbarCoordinator.start()
     }
 }

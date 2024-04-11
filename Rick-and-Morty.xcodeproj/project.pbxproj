@@ -20,6 +20,7 @@
 		F409F42D2BC1E1EF004433D3 /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F42C2BC1E1EF004433D3 /* FavouritesCoordinator.swift */; };
 		F409F42F2BC1E831004433D3 /* CharacterDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */; };
 		F409F4312BC1E99D004433D3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4302BC1E99D004433D3 /* TabBarController.swift */; };
+		F409F4332BC72DBA004433D3 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F409F42C2BC1E1EF004433D3 /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
 		F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsCoordinator.swift; sourceTree = "<group>"; };
 		F409F4302BC1E99D004433D3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				F409F42A2BC1E1D0004433D3 /* EpisodesCoordinator.swift */,
 				F409F42C2BC1E1EF004433D3 /* FavouritesCoordinator.swift */,
 				F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */,
+				F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				F409F42F2BC1E831004433D3 /* CharacterDetailsCoordinator.swift in Sources */,
 				F409F4252BC1CDC0004433D3 /* Coordinator.swift in Sources */,
 				F409F40B2BBF2BBC004433D3 /* AppDelegate.swift in Sources */,
+				F409F4332BC72DBA004433D3 /* TabbarCoordinator.swift in Sources */,
 				F409F40D2BBF2BBC004433D3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

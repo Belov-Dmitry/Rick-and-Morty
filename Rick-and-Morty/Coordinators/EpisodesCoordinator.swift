@@ -6,16 +6,18 @@
 //
 
 import Foundation
-//import UIKit
+import UIKit
 
 class EpisodesCoordinator: Coordinator {
+    private var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     override func start() {
         let vc = ViewController()
         vc.view.backgroundColor = .systemYellow
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    override func finish() {
+        navigationController.pushViewController(vc, animated: true)
     }
 }

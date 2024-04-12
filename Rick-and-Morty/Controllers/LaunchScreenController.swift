@@ -7,8 +7,9 @@
 
 import UIKit
 
-final class LaunchScreen: UIViewController {
+final class LaunchScreenController: UIViewController {
     
+    weak var launchScreenCoordinator: LaunchScreenCoordinator?
     private var logoImageView = UIImageView()
     private var loadingComponentImageView = UIImageView()
     
@@ -22,7 +23,6 @@ final class LaunchScreen: UIViewController {
         startAnimationAndGoToMainVC()
     }
     
-    
     func startAnimationAndGoToMainVC() {
         UIView.animate(withDuration: 1.5, delay: 0.0, options: .curveLinear, animations: {
             self.loadingComponentImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
@@ -31,17 +31,16 @@ final class LaunchScreen: UIViewController {
                 self.loadingComponentImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2))
             }, completion: { isFinished in
                 print("End animation")
-                self.present(ViewController(), animated: true)
+                self.launchScreenCoordinator?.showTabbar()
             })
         })
     }
-    
+}
 
 
 
-
-    
-    
+//MARK: - extension LaunchScreenController
+extension LaunchScreenController {
     func setupUI() {
         view.backgroundColor = .white
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +62,5 @@ final class LaunchScreen: UIViewController {
             loadingComponentImageView.widthAnchor.constraint(equalToConstant: 200),
             loadingComponentImageView.heightAnchor.constraint(equalToConstant: 200)
         ])
-        
     }
-    
 }

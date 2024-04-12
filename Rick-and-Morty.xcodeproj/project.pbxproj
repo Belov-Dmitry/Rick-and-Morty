@@ -21,6 +21,9 @@
 		F409F42F2BC1E831004433D3 /* CharacterDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */; };
 		F409F4312BC1E99D004433D3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4302BC1E99D004433D3 /* TabBarController.swift */; };
 		F409F4332BC72DBA004433D3 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */; };
+		F44D04B42BC868D90081F8B5 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D04B32BC868D90081F8B5 /* EpisodesViewController.swift */; };
+		F44D04B62BC948F30081F8B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D04B52BC948F30081F8B5 /* CustomTextField.swift */; };
+		F44D04BA2BC9C2270081F8B5 /* UIColor+RGBandHEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D04B92BC9C2270081F8B5 /* UIColor+RGBandHEX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsCoordinator.swift; sourceTree = "<group>"; };
 		F409F4302BC1E99D004433D3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		F44D04B32BC868D90081F8B5 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		F44D04B52BC948F30081F8B5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F44D04B92BC9C2270081F8B5 /* UIColor+RGBandHEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGBandHEX.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +78,11 @@
 		F409F4092BBF2BBC004433D3 /* Rick-and-Morty */ = {
 			isa = PBXGroup;
 			children = (
+				F44D04B82BC9C1E00081F8B5 /* Helpers */,
 				F409F4232BC1CD78004433D3 /* Controllers */,
 				F409F4222BC1CD20004433D3 /* Coordinators */,
 				F409F41F2BBF2E1A004433D3 /* Application */,
 				F409F41E2BBF2DF9004433D3 /* Resources */,
-				F409F40E2BBF2BBC004433D3 /* ViewController.swift */,
 			);
 			path = "Rick-and-Morty";
 			sourceTree = "<group>";
@@ -117,10 +123,29 @@
 		F409F4232BC1CD78004433D3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F409F40E2BBF2BBC004433D3 /* ViewController.swift */,
 				F409F4202BBF42DF004433D3 /* LaunchScreenController.swift */,
 				F409F4302BC1E99D004433D3 /* TabBarController.swift */,
+				F44D04B32BC868D90081F8B5 /* EpisodesViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F44D04B72BC948FB0081F8B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F44D04B52BC948F30081F8B5 /* CustomTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F44D04B82BC9C1E00081F8B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F44D04B72BC948FB0081F8B5 /* Views */,
+				F44D04B92BC9C2270081F8B5 /* UIColor+RGBandHEX.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +218,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44D04B62BC948F30081F8B5 /* CustomTextField.swift in Sources */,
 				F409F4292BC1E192004433D3 /* LaunchScreenCoordinator.swift in Sources */,
+				F44D04B42BC868D90081F8B5 /* EpisodesViewController.swift in Sources */,
 				F409F4272BC1E127004433D3 /* AppCoordinator.swift in Sources */,
 				F409F4312BC1E99D004433D3 /* TabBarController.swift in Sources */,
+				F44D04BA2BC9C2270081F8B5 /* UIColor+RGBandHEX.swift in Sources */,
 				F409F42D2BC1E1EF004433D3 /* FavouritesCoordinator.swift in Sources */,
 				F409F4212BBF42DF004433D3 /* LaunchScreenController.swift in Sources */,
 				F409F40F2BBF2BBC004433D3 /* ViewController.swift in Sources */,

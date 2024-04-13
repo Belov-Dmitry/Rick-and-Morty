@@ -16,8 +16,7 @@ class EpisodesCoordinator: Coordinator {
     }
     
     override func start() {
-        let vc = ViewController()
-        vc.view.backgroundColor = .systemYellow
+        let vc = EpisodesViewController()
         navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -14,8 +14,6 @@ class EpisodesViewController: UIViewController {
     private var filtersButton = UIButton()
     private var episodesCollectionView: UICollectionView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +84,7 @@ extension EpisodesViewController {
             episodesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             episodesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             episodesCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+
         ])
         
         
@@ -99,6 +98,7 @@ extension EpisodesViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath)
+
         cell.backgroundColor = .systemPink
         return cell
     }

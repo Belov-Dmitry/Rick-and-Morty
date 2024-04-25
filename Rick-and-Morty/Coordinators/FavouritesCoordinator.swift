@@ -17,8 +17,8 @@ class FavouritesCoordinator: Coordinator {
     }
     
     override func start() {
-        let vc = ViewController()
-        vc.view.backgroundColor = .systemGray
+        let vc = FavouritesViewController()
+        vc.title = "Favourites episodes"
         navigationController.pushViewController(vc, animated: true)
     }
 }

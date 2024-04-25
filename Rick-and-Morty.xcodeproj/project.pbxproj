@@ -21,6 +21,8 @@
 		F409F42F2BC1E831004433D3 /* CharacterDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */; };
 		F409F4312BC1E99D004433D3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4302BC1E99D004433D3 /* TabBarController.swift */; };
 		F409F4332BC72DBA004433D3 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */; };
+		F438711D2BD2F91A00D50235 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438711C2BD2F91A00D50235 /* EpisodeCell.swift */; };
+		F438711F2BDAE74500D50235 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438711E2BDAE74500D50235 /* FavouritesViewController.swift */; };
 		F44D04B42BC868D90081F8B5 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D04B32BC868D90081F8B5 /* EpisodesViewController.swift */; };
 		F44D04B62BC948F30081F8B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D04B52BC948F30081F8B5 /* CustomTextField.swift */; };
 		F44D04BA2BC9C2270081F8B5 /* UIColor+RGBandHEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D04B92BC9C2270081F8B5 /* UIColor+RGBandHEX.swift */; };
@@ -43,6 +45,8 @@
 		F409F42E2BC1E831004433D3 /* CharacterDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsCoordinator.swift; sourceTree = "<group>"; };
 		F409F4302BC1E99D004433D3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F409F4322BC72DBA004433D3 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		F438711C2BD2F91A00D50235 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		F438711E2BDAE74500D50235 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		F44D04B32BC868D90081F8B5 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		F44D04B52BC948F30081F8B5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F44D04B92BC9C2270081F8B5 /* UIColor+RGBandHEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGBandHEX.swift"; sourceTree = "<group>"; };
@@ -126,7 +130,9 @@
 				F409F40E2BBF2BBC004433D3 /* ViewController.swift */,
 				F409F4202BBF42DF004433D3 /* LaunchScreenController.swift */,
 				F409F4302BC1E99D004433D3 /* TabBarController.swift */,
+				F438711C2BD2F91A00D50235 /* EpisodeCell.swift */,
 				F44D04B32BC868D90081F8B5 /* EpisodesViewController.swift */,
+				F438711E2BDAE74500D50235 /* FavouritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -218,11 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F438711F2BDAE74500D50235 /* FavouritesViewController.swift in Sources */,
 				F44D04B62BC948F30081F8B5 /* CustomTextField.swift in Sources */,
 				F409F4292BC1E192004433D3 /* LaunchScreenCoordinator.swift in Sources */,
 				F44D04B42BC868D90081F8B5 /* EpisodesViewController.swift in Sources */,
 				F409F4272BC1E127004433D3 /* AppCoordinator.swift in Sources */,
 				F409F4312BC1E99D004433D3 /* TabBarController.swift in Sources */,
+				F438711D2BD2F91A00D50235 /* EpisodeCell.swift in Sources */,
 				F44D04BA2BC9C2270081F8B5 /* UIColor+RGBandHEX.swift in Sources */,
 				F409F42D2BC1E1EF004433D3 /* FavouritesCoordinator.swift in Sources */,
 				F409F4212BBF42DF004433D3 /* LaunchScreenController.swift in Sources */,

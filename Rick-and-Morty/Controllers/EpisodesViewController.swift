@@ -59,7 +59,7 @@ extension EpisodesViewController {
         
         episodesCollectionView.delegate = self
         episodesCollectionView.dataSource = self
-        episodesCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellIdentifier")
+        episodesCollectionView.register(EpisodeCell.self, forCellWithReuseIdentifier: String(describing: EpisodeCell.self))
         view.addSubview(episodesCollectionView)
         
         NSLayoutConstraint.activate([
@@ -86,8 +86,7 @@ extension EpisodesViewController {
             episodesCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
 
         ])
-        
-        
+ 
     }
 }
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -97,11 +96,17 @@ extension EpisodesViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: EpisodeCell.self), for: indexPath) as! EpisodeCell
 
-        cell.backgroundColor = .systemPink
+//        cell.backgroundColor = .systemPink
         return cell
     }
     
     
+}
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension EpisodesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 1.15)
+    }
 }

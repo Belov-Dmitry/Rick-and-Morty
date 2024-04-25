@@ -30,7 +30,6 @@ final class LaunchScreenController: UIViewController {
             UIView.animate(withDuration: 1.5, delay: 0.0, options: .curveLinear, animations: {
                 self.loadingComponentImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2))
             }, completion: { isFinished in
-                print("End animation")
                 self.launchScreenCoordinator?.showTabbar()
             })
         })

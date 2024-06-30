@@ -8,22 +8,32 @@
 import Foundation
 import UIKit
 
-class LaunchScreenCoordinator: Coordinator {
-    private var navigationController: UINavigationController
+final class LaunchScreenCoordinator: Coordinator {
+    weak var finishDelegate: CoordinatorFinishDelegate?
+    var navigationController: UINavigationController
+    var childCoordinators: [Coordinator] = []
+    var type: CoordinatorType { .launch }
+    var dependencies: DependenciesProtocol
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, dependencies: DependenciesProtocol) {
         self.navigationController = navigationController
+        self.dependencies = dependencies
     }
     
-    override func start() {
-        let launchScreenController = LaunchScreenController()
-        launchScreenController.launchScreenCoordinator = self
+    func start() {
+        showLaunchViewController()
+    }
+    
+    func showLaunchViewController() {
+        let launchScreenController = LaunchScreenAssembly.configure(dependencies)
+        if let launchScreenController = launchScreenController as? LaunchScreenController{
+        launchScreenController.didSendEventHandler = { [weak self] event in
+            switch event {
+            case .launchComplete:
+                self?.finish()
+            }
+        }
+    }
         navigationController.pushViewController(launchScreenController, animated: true)
-    }
-    
-    func showTabbar() {
-        let tabbarCoordinator = TabbarCoordinator(navigationController: navigationController)
-        addChildCoordinator(tabbarCoordinator)
-        tabbarCoordinator.start()
     }
 }

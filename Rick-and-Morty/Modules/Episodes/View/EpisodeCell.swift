@@ -22,8 +22,31 @@ class EpisodeCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // Configure UI
+        makeUI()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Public Methods
+    
+    func configure(with episode: EpisodeAndCharacterModel) {
+        //characterImageView.image = UIImage(named: image)
+        nameLabel.text = episode.episodeName
+        episodeNameLabel.text = episode.episodeName + " | " + episode.episodeCode
+        if episode.characterImage != nil {
+            characterImageView.image = episode.characterImage
+                
+                
+                .withRenderingMode(.alwaysOriginal)
+                
+            //activityIndicatorView.stopAnimating()
+        }
+    }
+    
+}
+extension EpisodeCell {
+    func makeUI() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 10
         
@@ -91,17 +114,4 @@ class EpisodeCell: UICollectionViewCell {
             heartButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Public Methods
-    
-    func configure(with image: String, name: String, episodeName: String, episodeCode: String) {
-        characterImageView.image = UIImage(named: image)
-        nameLabel.text = name
-        episodeNameLabel.text = episodeName + " | " + episodeCode
-    }
-    
 }

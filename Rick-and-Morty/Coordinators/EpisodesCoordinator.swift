@@ -9,14 +9,17 @@ import Foundation
 import UIKit
 
 class EpisodesCoordinator: Coordinator {
-    private var navigationController: UINavigationController
+    weak var finishDelegate: CoordinatorFinishDelegate?
+    var navigationController: UINavigationController
+    var childCoordinators: [Coordinator] = []
+    var type: CoordinatorType { .episodes }
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    override func start() {
-        let vc = EpisodesViewController()
-        navigationController.pushViewController(vc, animated: true)
+    func start() {
+        let episodesViewController = EpisodesViewController()
+        navigationController.pushViewController(episodesViewController, animated: true)
     }
 }

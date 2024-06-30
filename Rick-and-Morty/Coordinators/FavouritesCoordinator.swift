@@ -9,16 +9,18 @@ import Foundation
 import UIKit
 
 class FavouritesCoordinator: Coordinator {
-    
-    private var navigationController: UINavigationController
+    weak var finishDelegate: CoordinatorFinishDelegate?
+    var navigationController: UINavigationController
+    var childCoordinators: [Coordinator] = []
+    var type: CoordinatorType { .launch }
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    override func start() {
-        let vc = FavouritesViewController()
-        vc.title = "Favourites episodes"
-        navigationController.pushViewController(vc, animated: true)
+    func start() {
+        let favouritesViewController = FavouritesViewController()
+        favouritesViewController.title = "Favourites episodes"
+        navigationController.pushViewController(favouritesViewController, animated: true)
     }
 }

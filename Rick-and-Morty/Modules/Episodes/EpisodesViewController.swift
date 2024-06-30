@@ -14,14 +14,67 @@ class EpisodesViewController: UIViewController {
     private var filtersButton = UIButton()
     private var episodesCollectionView: UICollectionView!
     
+    private let networkService = NetworkService()
+    
+    var viewModel: EpisodesViewModel?
+    
+    private var episodesArray: [EpisodeAndCharacterModel] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         makeUI()
+        bindViewModel()
+        viewModel?.getEpisodes()
+
     }
     
     
+    private func bindViewModel() {
+        viewModel?.dataSourceArray.bind { [weak self] episodes in
+            guard let self, let episodes else { return }
+            episodesArray = episodes
+            reloadTableView()
+        }
+    }
+    
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.episodesCollectionView.reloadData()
+        }
+    }
+    
 }
+
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension EpisodesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        episodesArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: EpisodeCell.self), for: indexPath) as! EpisodeCell
+        cell.configure(with: episodesArray[indexPath.row])
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let character = viewModel?.episodesWithCharacterArray[indexPath.row] else { return }
+        let detailViewModel = DetailsViewModel(character: character)
+        let detailViewController = DetailsViewController(viewModel: detailViewModel)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+extension EpisodesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 1.15)
+    }
+}
+
 //MARK: - MakeUI()
 extension EpisodesViewController {
     func makeUI() {
@@ -87,26 +140,5 @@ extension EpisodesViewController {
 
         ])
  
-    }
-}
-//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension EpisodesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        200
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: EpisodeCell.self), for: indexPath) as! EpisodeCell
-
-//        cell.backgroundColor = .systemPink
-        return cell
-    }
-    
-    
-}
-//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension EpisodesViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 1.15)
     }
 }

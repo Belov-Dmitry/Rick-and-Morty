@@ -8,8 +8,11 @@
 import UIKit
 
 final class LaunchScreenController: UIViewController {
+    enum Event {
+        case launchComplete
+    }
+    var didSendEventHandler: ((LaunchScreenController.Event) -> Void)?
     
-    weak var launchScreenCoordinator: LaunchScreenCoordinator?
     private var logoImageView = UIImageView()
     private var loadingComponentImageView = UIImageView()
     
@@ -23,6 +26,7 @@ final class LaunchScreenController: UIViewController {
         startAnimationAndGoToMainVC()
     }
     
+    //MARK: - Methods
     func startAnimationAndGoToMainVC() {
         UIView.animate(withDuration: 1.5, delay: 0.0, options: .curveLinear, animations: {
             self.loadingComponentImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
@@ -30,7 +34,7 @@ final class LaunchScreenController: UIViewController {
             UIView.animate(withDuration: 1.5, delay: 0.0, options: .curveLinear, animations: {
                 self.loadingComponentImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2))
             }, completion: { isFinished in
-                self.launchScreenCoordinator?.showTabbar()
+                self.didSendEventHandler?(.launchComplete)
             })
         })
     }

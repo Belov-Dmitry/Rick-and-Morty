@@ -8,25 +8,36 @@
 import Foundation
 import UIKit
 
-protocol CoordinatorProtocol: AnyObject {
-    var childCoordinators: [CoordinatorProtocol] { get set }
-    
+enum CoordinatorType {
+    case app, launch, episodes, favourites, tabbar
+}
+
+protocol Coordinator: AnyObject {
+    var finishDelegate: CoordinatorFinishDelegate? { get }
+    var navigationController: UINavigationController { get set }
+    var childCoordinators: [Coordinator] { get set }
+    var type: CoordinatorType { get }
+
     func start()
     func finish()
 }
 
-extension CoordinatorProtocol {
-    func addChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
-        childCoordinators.append(childCoordinator)
-    }
-    func removeChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
-        childCoordinators = childCoordinators.filter{ $0 !== childCoordinator }
+extension Coordinator {
+//    func addChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
+//        childCoordinators.append(childCoordinator)
+//    }
+//    func removeChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
+//        childCoordinators = childCoordinators.filter{ $0 !== childCoordinator }
+//    }
+    func finish() {
+        childCoordinators.removeAll()
+        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }
 }
 
-class Coordinator: CoordinatorProtocol {
-    var childCoordinators: [CoordinatorProtocol] = []
-    
-    func start() { print("Coordinator start") }
-    func finish() { print("Coordinator finish") }
+protocol CoordinatorFinishDelegate: AnyObject {
+    func coordinatorDidFinish(childCoordinator: Coordinator)
 }
+
+
+

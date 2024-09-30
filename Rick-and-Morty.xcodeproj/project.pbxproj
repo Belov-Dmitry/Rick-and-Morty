@@ -44,6 +44,7 @@
 		F45538172C28310500586D34 /* CharacterImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45538162C28310500586D34 /* CharacterImageService.swift */; };
 		F45538192C28B5B300586D34 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45538182C28B5B300586D34 /* DetailsViewModel.swift */; };
 		F455381C2C28CDB200586D34 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455381B2C28CDB200586D34 /* DetailsTableViewCell.swift */; };
+		F455381F2C31A31900586D34 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = F455381E2C31A31900586D34 /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F455381F2C31A31900586D34 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +306,9 @@
 			dependencies = (
 			);
 			name = "Rick-and-Morty";
+			packageProductDependencies = (
+				F455381E2C31A31900586D34 /* SkeletonView */,
+			);
 			productName = "Rick-and-Morty";
 			productReference = F409F4072BBF2BBC004433D3 /* Rick-and-Morty.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +337,9 @@
 				Base,
 			);
 			mainGroup = F409F3FE2BBF2BBC004433D3;
+			packageReferences = (
+				F455381D2C31A31900586D34 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+			);
 			productRefGroup = F409F4082BBF2BBC004433D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -615,6 +623,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F455381D2C31A31900586D34 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F455381E2C31A31900586D34 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F455381D2C31A31900586D34 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F409F3FF2BBF2BBC004433D3 /* Project object */;
 }

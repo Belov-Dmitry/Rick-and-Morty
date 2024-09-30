@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 
 class EpisodeCell: UICollectionViewCell {
     // MARK: - Properties
@@ -17,6 +18,7 @@ class EpisodeCell: UICollectionViewCell {
     let episodeNameLabel = UILabel()
     let monitorImageView = UIImageView()
     let heartButton = UIButton()
+    
     
     // MARK: - Lifecycle
     
@@ -31,7 +33,6 @@ class EpisodeCell: UICollectionViewCell {
     // MARK: - Public Methods
     
     func configure(with episode: EpisodeAndCharacterModel) {
-        //characterImageView.image = UIImage(named: image)
         nameLabel.text = episode.episodeName
         episodeNameLabel.text = episode.episodeName + " | " + episode.episodeCode
         if episode.characterImage != nil {
@@ -40,7 +41,6 @@ class EpisodeCell: UICollectionViewCell {
                 
                 .withRenderingMode(.alwaysOriginal)
                 
-            //activityIndicatorView.stopAnimating()
         }
     }
     
@@ -57,6 +57,16 @@ extension EpisodeCell {
         contentView.addSubview(episodeNameLabel)
         contentView.addSubview(monitorImageView)
         contentView.addSubview(heartButton)
+        
+        //Settings for SkeletonView
+        //contentView.isSkeletonable = true
+        isSkeletonable = true
+        characterImageView.isSkeletonable = true
+        nameLabel.isSkeletonable = true
+        nameLabel.linesCornerRadius = 8
+        episodeNameLabel.isSkeletonable = true
+        monitorImageView.isSkeletonable = true
+        heartButton.isSkeletonable = true
         
         // Configure subviews
         characterImageView.contentMode = .scaleAspectFill

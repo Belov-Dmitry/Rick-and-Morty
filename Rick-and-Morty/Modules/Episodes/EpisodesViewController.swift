@@ -7,40 +7,53 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 
 class EpisodesViewController: UIViewController {
     private var logoImageView = UIImageView()
     private var searchTextField = CustomTextField()
     private var filtersButton = UIButton()
     private var episodesCollectionView: UICollectionView!
-    
-    private let networkService = NetworkService()
-    
+
     var viewModel: EpisodesViewModel?
     
     private var episodesArray: [EpisodeAndCharacterModel] = []
     
-    
+//MARK: - LifeCycle
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        episodesCollectionView.isSkeletonable = true
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
         bindViewModel()
         viewModel?.getEpisodes()
-
+        
+        episodesCollectionView.isSkeletonable = true
+        episodesCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald),
+                                                              animation: nil,
+                                                              transition: .crossDissolve(0.25))
     }
     
-    
+    //MARK: - Binding
     private func bindViewModel() {
         viewModel?.dataSourceArray.bind { [weak self] episodes in
             guard let self, let episodes else { return }
             episodesArray = episodes
+            
             reloadTableView()
+            
+            
         }
     }
     
     func reloadTableView() {
         DispatchQueue.main.async {
+            self.episodesCollectionView.stopSkeletonAnimation()
+            self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
             self.episodesCollectionView.reloadData()
         }
     }
@@ -48,7 +61,14 @@ class EpisodesViewController: UIViewController {
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension EpisodesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EpisodesViewController: UICollectionViewDelegate, SkeletonCollectionViewDataSource  {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+        String(describing: EpisodeCell.self)
+    }
+    
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         episodesArray.count
     }

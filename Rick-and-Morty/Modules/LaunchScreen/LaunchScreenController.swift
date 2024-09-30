@@ -3,7 +3,7 @@
 //  Rick-and-Morty
 //
 //  Created by Dmitry Belov on 04.04.2024.
-//
+// JulyBranch1
 
 import UIKit
 
